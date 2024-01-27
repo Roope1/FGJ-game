@@ -6,6 +6,12 @@ public class Obstacle : MonoBehaviour
 {
     private float _speed;
     private bool _scoreUpdated = false;
+
+    void Start()
+    {
+        gameObject.tag = "Obstacle";
+    }
+
     private void FixedUpdate()
     {
         _speed = GameManager.Instance.ObstacleSpeed;

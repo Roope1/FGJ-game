@@ -27,4 +27,14 @@ public class SealController : MonoBehaviour
         gameObject.transform.position += new Vector3(-input * _moveSpeed, 0, 0);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        GameObject target = collision.gameObject;
+        if (target.CompareTag("Obstacle"))
+        {
+            GameManager.Instance.GameActive = false;
+            Debug.Log("Hit obstacle, game over");
+
+        }
+    }
 }
