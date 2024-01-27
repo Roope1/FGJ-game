@@ -6,19 +6,24 @@ using UnityEngine.SceneManagement;
 public class SealController : MonoBehaviour
 {
     [SerializeField] private float _moveSpeed = 2f;
+    [SerializeField] private AudioSource _bonk;
+    [SerializeField] private Animator _anim;
+
     private Rigidbody _sealRig;
+    private bool _canMove = true;
     private Camera _cam;
     // Start is called before the first frame update
     void Start()
     {
         _cam = FindAnyObjectByType<Camera>();
         _sealRig = gameObject.GetComponent<Rigidbody>();
+        _anim.SetBool("Dead", false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Horizontal") != 0)
+        if (Input.GetAxis("Horizontal") != 0 && _canMove)
         {
             Move(Input.GetAxis("Horizontal"));
         }
@@ -41,7 +46,9 @@ public class SealController : MonoBehaviour
         {
             if (GameManager.Instance.GameActive)
             {
-                gameObject.transform.parent.gameObject.GetComponentInChildren<AudioSource>().Play();
+                _bonk.Play();
+                _canMove = false;
+                _anim.SetBool("Dead", true);
             }
             GameManager.Instance.GameOver();
             GameManager.Instance.GameActive = false;
@@ -62,8 +69,9 @@ public class SealController : MonoBehaviour
         _cam.gameObject.GetComponent<Rigidbody>().isKinematic = true;
 
         // apply ragdoll
-        rig.velocity = new Vector3(0f, 0f, -speed);
+        //rig.velocity = new Vector3(0f, 0f, -speed);
         rig.AddForce(Vector3.up * 15, ForceMode.Impulse);
+        rig.AddForce(Vector3.forward * -speed, ForceMode.VelocityChange);
         yield return new WaitForSeconds(8f);
         GameManager.Instance.SelfDestruct();
         SceneManager.LoadScene("MainMenu");
