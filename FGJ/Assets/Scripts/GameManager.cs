@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -41,5 +43,19 @@ public class GameManager : MonoBehaviour
     {
         ObstacleSpeed += _obstacleAcceleration;
         ObstacleSpawnDelay -= _obstacleAcceleration / 2;
+    }
+
+    public void GameOver()
+    {
+        if (CurrentScore > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", CurrentScore);
+        }
+        CurrentScore = 0;
+    }
+
+    public void SelfDestruct()
+    {
+        Destroy(gameObject);
     }
 }
