@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SealController : MonoBehaviour
 {
-    [SerializeField] private float _moveForce = 2f;
+    [SerializeField] private float _moveSpeed = 2f;
     private Rigidbody _sealRig;
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,8 @@ public class SealController : MonoBehaviour
 
     private void Move(float input)
     {
-        _sealRig.AddForce(Vector3.left * input * _moveForce, ForceMode.Force);
+        //_sealRig.AddForce(Vector3.left * input * _moveForce, ForceMode.Force);
+        gameObject.transform.position += new Vector3(-input * _moveSpeed, 0, 0);
     }
 
 }

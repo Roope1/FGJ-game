@@ -30,7 +30,11 @@ public class ObstacleSpawner : MonoBehaviour
                     transform.position.z),
                 transform.rotation);
             newObstacle.AddComponent<Obstacle>();
-            yield return new WaitForSeconds(GameManager.Instance.ObstacleSpawnDelay);
+            yield return new WaitForSeconds(
+                UnityEngine.Random.Range(
+                    GameManager.Instance.ObstacleSpawnDelay * 0.8f,
+                    GameManager.Instance.ObstacleSpawnDelay * 1.2f)
+                );
         }
     }
 
