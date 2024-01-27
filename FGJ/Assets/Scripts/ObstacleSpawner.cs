@@ -8,8 +8,7 @@ public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] private float _width = 1f;
     [SerializeField] private GameObject[] _obstacles;
-    private bool _gameActive = true;
-    // Start is called before the first frame update
+
     void Start()
     {
         StartCoroutine(SpawnObstacles());
@@ -17,7 +16,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private IEnumerator SpawnObstacles()
     {
-        while (_gameActive)
+        while (GameManager.Instance.GameActive)
         {
             int obstacleIndex = UnityEngine.Random.Range(0, _obstacles.Count());
             GameObject newObstacle = Instantiate(
@@ -31,7 +30,7 @@ public class ObstacleSpawner : MonoBehaviour
                     transform.position.z),
                 transform.rotation);
             newObstacle.AddComponent<Obstacle>();
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(GameManager.Instance.ObstacleSpawnDelay);
         }
     }
 
