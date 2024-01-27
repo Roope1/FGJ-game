@@ -673,6 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _renderer: {fileID: 1269338568}
+  _speed: 0.055
 --- !u!1 &1340137003
 GameObject:
   m_ObjectHideFlags: 0
