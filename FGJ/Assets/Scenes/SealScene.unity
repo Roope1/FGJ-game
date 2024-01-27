@@ -153,6 +153,7 @@ MonoBehaviour:
   GameActive: 1
   ObstacleSpeed: 0.8
   ObstacleSpawnDelay: 1
+  _obstacleAcceleration: 0.0001
 --- !u!4 &170140062
 Transform:
   m_ObjectHideFlags: 0
@@ -1055,7 +1056,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _width: 30
   _obstacles:
-  - {fileID: 7333221904060406707, guid: 6507e59998b8b1547853f39e4af77c19, type: 3}
+  - {fileID: 100000, guid: f28e8463f4463eb48afeccffe267583f, type: 3}
+  - {fileID: 100000, guid: f282d9fb9b399dd4384b20aba08642fb, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

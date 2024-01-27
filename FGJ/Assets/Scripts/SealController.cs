@@ -32,6 +32,10 @@ public class SealController : MonoBehaviour
         GameObject target = collision.gameObject;
         if (target.CompareTag("Obstacle"))
         {
+            if (GameManager.Instance.GameActive)
+            {
+                gameObject.transform.parent.gameObject.GetComponentInChildren<AudioSource>().Play();
+            }
             GameManager.Instance.GameActive = false;
             Debug.Log("Hit obstacle, game over");
 
