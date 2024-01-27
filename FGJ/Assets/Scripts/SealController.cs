@@ -38,7 +38,7 @@ public class SealController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        // if (!GameManager.Instance.GameActive) return;
+        if (!GameManager.Instance.GameActive) return;
 
         GameObject target = collision.gameObject;
         Debug.Log($"Colliding with {target}");
