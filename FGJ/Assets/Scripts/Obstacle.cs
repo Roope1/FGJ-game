@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        throw new System.NotImplementedException();
-    }
-
     private void FixedUpdate()
     {
+        transform.position += transform.rotation * new Vector3(0, 0, 1f);
 
+        if (transform.position.z > 35f)
+        {
+            Destroy(gameObject);
+        }
     }
 }

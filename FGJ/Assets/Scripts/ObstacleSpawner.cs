@@ -29,9 +29,9 @@ public class ObstacleSpawner : MonoBehaviour
                         ),
                     transform.position.y,
                     transform.position.z),
-                Quaternion.identity);
+                transform.rotation);
             newObstacle.AddComponent<Obstacle>();
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(2f);
         }
     }
 
