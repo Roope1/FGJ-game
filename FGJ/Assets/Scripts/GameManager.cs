@@ -7,8 +7,8 @@ public class GameManager : MonoBehaviour
     public int CurrentScore = 0;
     public bool GameActive = true;
     public float ObstacleSpeed = 0.4f;
-
     public float ObstacleSpawnDelay = 2f;
+    [SerializeField] private float _obstacleAcceleration = 0.0001f;
 
     public static GameManager _instance;
     public static GameManager Instance
@@ -35,5 +35,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void FixedUpdate()
+    {
+        ObstacleSpeed += _obstacleAcceleration;
+        ObstacleSpawnDelay -= _obstacleAcceleration / 2;
     }
 }
