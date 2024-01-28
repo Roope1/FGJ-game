@@ -145,6 +145,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: seal
       objectReference: {fileID: 0}
+    - target: {fileID: 4685132790420173178, guid: facb1d5e7f677d84a944dbb5269d0b2a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685132790420173178, guid: facb1d5e7f677d84a944dbb5269d0b2a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.122
+      objectReference: {fileID: 0}
+    - target: {fileID: 4685132790420173178, guid: facb1d5e7f677d84a944dbb5269d0b2a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 5646486318026690707, guid: facb1d5e7f677d84a944dbb5269d0b2a,
         type: 3}
       propertyPath: m_LocalPosition.x
