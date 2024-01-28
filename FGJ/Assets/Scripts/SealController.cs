@@ -55,6 +55,11 @@ public class SealController : MonoBehaviour
             Debug.Log("Hit obstacle, game over");
             StartCoroutine(EndGame());
         }
+        else if (target.CompareTag("Wall"))
+        {
+            Rigidbody rig = gameObject.GetComponent<Rigidbody>();
+            rig.AddForce(Vector3.left * transform.position.x * 0.5f, ForceMode.Impulse);
+        }
     }
 
     private IEnumerator EndGame()
