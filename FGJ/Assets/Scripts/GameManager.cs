@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public int CurrentScore = 0;
     public bool GameActive = true;
-    public float ObstacleSpeed = 0.4f;
-    public float ObstacleSpawnDelay = 2f;
-    [SerializeField] private float _obstacleAcceleration = 0.0001f;
+    public float ObstacleSpeed = 0.8f;
+    public float ObstacleSpawnDelay = 1f;
+    [SerializeField] private float _obstacleAcceleration = 0.001f;
 
     public static GameManager _instance;
     public static GameManager Instance
